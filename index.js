@@ -59,6 +59,10 @@ app.post("/api/register", (req, res) => {
     res.status(201).json(newUser)
 })
 
+app.use("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"))
+})
+
 app.listen(port, () => {
     console.log(`Server Listening on port ${port}`)
 })
